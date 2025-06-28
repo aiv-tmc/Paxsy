@@ -26,6 +26,6 @@ The documentation can be obtained at [this link](./docs/index.md).
 ## Dependencies 
 This program depends on the **gcc** interpreter version **15.1.1** or higher.
 
-
+---
 
 *Previous versions of the programming language can be viewed here: https://github.com/aiv-tmc/MyLang*

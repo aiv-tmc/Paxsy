@@ -1,0 +1,8 @@
+#inclib(syscall);
+
+__begin : 2int {
+    unsig $msg : char[?] = "Hello, World!";
+    syscall::write($msg[:], $msg[:]::size/$msg::size);
+    retunr(0);
+}
+

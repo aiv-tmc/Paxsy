@@ -2,6 +2,12 @@
 An open-source programming language. The language is currently under active development.
 The **paxsi** project is freely available under the MIT license. You can read it at [this link](https://github.com/aiv-tmc/Paxsi/blob/main/LICENSE).
 
+<!--Status of versions-->
+## Status of versions
+Newest:  [paxsi_3.3w8f2](https://github.com/aiv-tmc/Paxsi/tree/paxsi_3.3w8f2)
+Current: [paxsi_v0.3.3w7f2](https://github.com/aiv-tmc/MyLang/tree/main/paxsi_v0.3.3w7f2)
+Stable:  [paxsi 3.3w6](https://github.com/aiv-tmc/MyLang/tree/main/paxsi%203.3w6)
+
 <!--Install-->
 ## Install (Linux)
 You must have installed [project dependencies](https://github.com/aiv-tmc/Paxsi#dependencies)

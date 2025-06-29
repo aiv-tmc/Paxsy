@@ -32,7 +32,7 @@ The documentation can be obtained at [this link](./docs/index.md).
 
 <!--Dependencies-->
 ## Dependencies 
-This program depends on the **gcc** interpreter version **15.1.1** or higher.
+This program depends on the **gcc** interpreter version **15.1** or higher.
 
 ---
 

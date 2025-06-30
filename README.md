@@ -36,4 +36,5 @@ This program depends on the **gcc** interpreter version **15.1** or higher.
 
 ---
 
+!From June **2** to June **13**, work on the project will be stopped.
 *Previous versions of the programming language can be viewed here: https://github.com/aiv-tmc/MyLang*

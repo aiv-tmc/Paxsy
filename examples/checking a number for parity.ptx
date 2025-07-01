@@ -1,0 +1,13 @@
+%include(base.hpi);
+
+__start : int {
+    $num : int;
+
+    _print("Enter a number: ");
+
+    syscall::read($num);
+
+    if (_round($num / 2) == 0) { _print($num, "even number"); }
+    else { _print($num, "odd number"); }
+    return(0);
+}

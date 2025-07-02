@@ -4,7 +4,7 @@ The **paxsi** project is freely available under the MIT license. You can read it
 
 <!--Status of versions-->
 ## Status of versions
-Newest: [PXI 3.4)0](https://github.com/aiv-tmc/Paxsi/tree/PXI_3.4)
+Newest: [PXI 3.4](https://github.com/aiv-tmc/Paxsi/tree/PXI-3.4)
 
 Current:  [paxsi_3.3w8f2](https://github.com/aiv-tmc/Paxsi/tree/paxsi_3.3w8f2)
 

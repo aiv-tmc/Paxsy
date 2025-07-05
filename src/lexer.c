@@ -104,6 +104,10 @@ const char* token_names[] = {
     [TOKEN_ALLOC]               =   "ALLOC",
     [TOKEN_TYPE]                =   "TYPE",
     [TOKEN_VAR_SIZE]            =   "VAR_SIZE",
+    [TOKEN_SYSCALL]             =   "SYSCALL",
+    [TOKEN_STACK]               =   "STACK",
+    [TOKEN_PUSH]                =   "PUSH",
+    [TOKEN_POP]                 =   "POP", 
     [TOKEN_EOF]                 =   "EOF",
     [TOKEN_ERROR]               =   "ERROR"
 };
@@ -442,6 +446,9 @@ void tokenize(Lexer* lexer) {
                 if (strncmp(lexer->input + lexer->position, "size", 4) == 0) {
                     add_token(lexer, TOKEN_SIZE, "size", 4);
                     SHIFT(lexer, 4);
+                } else if (strncmp(lexer->input + lexer->position, "syscall", 7) == 0) {
+                    add_token(lexer, TOKEN_SYSCALL, "syscall", 7);
+                    SHIFT(lexer, 7);
                 } else goto identifier;
                 break;
 
@@ -514,6 +521,12 @@ void tokenize(Lexer* lexer) {
                 if (strncmp(lexer->input + lexer->position, "parse", 5) == 0) {
                     add_token(lexer, TOKEN_PARSE, "parse", 5);
                     SHIFT(lexer, 5);
+                } else if (strncmp(lexer->input + lexer->position, "push", 4) == 0) {
+                    add_token(lexer, TOKEN_PUSH, "push", 4);
+                    SHIFT(lexer, 4);
+                } else if (strncmp(lexer->input + lexer->position, "pop", 3) == 0) {
+                    add_token(lexer, TOKEN_POP, "pop", 3);
+                    SHIFT(lexer, 3);
                 } else goto identifier;
                 break; 
 

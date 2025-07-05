@@ -1,7 +1,6 @@
 #include(base.hpi);
 #include(bool.hpi);
 
-
 __main : unsig 2int1 {
     $low, $hight : int;
     _print("Enter the range (lower and upper bounds): ");

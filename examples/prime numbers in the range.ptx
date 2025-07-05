@@ -7,23 +7,29 @@ __main : unsig 2int1 {
     syscall::read($low, $hight);
     syscall::write("\n", 1);
 
-    _print("Prime numbers in the range: ~i, ~i\n", $low, $hight);
+    _print("Prime numbers in the range: %i, %i\n", $low, $hight);
 
     $int i = $low;
-    do($i <= $hight) {
-        $is_prime : int = #TRUE;
-        if($i < 2) continue;
-        $j : int = $low
-        do($j * $j <= $i) {
-            if($i % $j == 0) {
-                is_prime = #FALSE;
-                break;
+    .forI {
+        if($i <= $hight) {
+            $is_prime : int = #TRUE;
+            if($i < 2) continue;
+            $j : int = $low
+            .forJ {
+                if($j * $j <= $i) {
+                    if($i % $j == 0) {
+                        is_prime = #FALSE;
+                        break;
+                    }
+                    $j++;
+                    .forJ
+                }
             }
-            $j++;
-        }
 
-        if($is_prime) _print("~i", $i);
-        $i++;
+            if($is_prime) _print("~i", $i);
+            $i++;
+            .forI;
+        }
     }
     syscall::write("\n", 1);
     return(2x0);

@@ -1,7 +1,8 @@
 %include(base.hpi);
 %include(bool.hpi);
 
-int main() {
+
+__main : 2int1 {
     $low, $hight : int;
     _print("Enter the range (lower and upper bounds): ");
     syscall::read($low, $hight);
@@ -22,9 +23,9 @@ int main() {
             $j++;
         }
 
-        if ($is_prime) _print("~i", $i);
+        if($is_prime) _print("~i", $i);
         $i++;
     }
     syscall::write("\n", 1);
-    return 0;
+    return(#2:0);
 }

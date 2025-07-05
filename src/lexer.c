@@ -15,8 +15,7 @@ const char* token_names[] = {
     [TOKEN_NULL]                =   "NULL",
     [TOKEN_IF]                  =   "IF",
     [TOKEN_ELIF]                =   "ELIF",
-    [TOKEN_ELSE]                =   "ELSE",
-    [TOKEN_DO]                  =   "DO",
+    [TOKEN_ELSE]                =   "ELSE"
     [TOKEN_RETURN]              =   "RETURN",
     [TOKEN_FREE]                =   "FREE",
     [TOKEN_BREAK]               =   "BREAK",
@@ -450,13 +449,6 @@ void tokenize(Lexer* lexer) {
                 if (strncmp(lexer->input + lexer->position, "goto", 4) == 0) {
                     add_token(lexer, TOKEN_GOTO, "goto", 4);
                     SHIFT(lexer, 4);
-                } else goto identifier;
-                break;
-
-            case 'd':
-                if (strncmp(lexer->input + lexer->position, "do", 2) == 0) {
-                    add_token(lexer, TOKEN_DO, "do", 2);
-                    SHIFT(lexer, 2);
                 } else goto identifier;
                 break;
 

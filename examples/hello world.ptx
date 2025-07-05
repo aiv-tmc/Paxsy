@@ -1,6 +1,6 @@
-%include(base.hpi);
+#include(base.hpi);
 
 __begin : 2int1 {
     _print("Hello, World!");
-    return(#2:0);
+    return(2x0);
 }

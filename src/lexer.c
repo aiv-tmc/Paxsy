@@ -102,9 +102,6 @@ const char* token_names[] = {
     [TOKEN_RPAREN]              =   "RPAREN",
     [TOKEN_SIZE]                =   "SIZE",
     [TOKEN_PARSE]               =   "PARSE",
-    [TOKEN_MALLOC]              =   "MALLOC",
-    [TOKEN_EALLOC]              =   "EALLOC",
-    [TOKEN_RALLOC]              =   "RALLOC",
     [TOKEN_ALLOC]               =   "ALLOC",
     [TOKEN_TYPE]                =   "TYPE",
     [TOKEN_VAR_SIZE]            =   "VAR_SIZE",
@@ -432,9 +429,6 @@ void tokenize(Lexer* lexer) {
                 } else if (strncmp(lexer->input + lexer->position, "else", 4) == 0) {
                     add_token(lexer, TOKEN_ELSE, "else", 4);
                     SHIFT(lexer, 4);
-                } else if (strncmp(lexer->input + lexer->position, "ealloc", 6) == 0) {
-                    add_token(lexer, TOKEN_EALLOC, "ealloc", 6);
-                    SHIFT(lexer, 6);
                 } else goto identifier;
                 break;
 
@@ -444,14 +438,7 @@ void tokenize(Lexer* lexer) {
                     SHIFT(lexer, 4);
                 } else goto identifier;
                 break;
-
-            case 'm':
-                if (strncmp(lexer->input + lexer->position, "malloc", 6) == 0) {
-                    add_token(lexer, TOKEN_MALLOC, "malloc", 6);
-                    SHIFT(lexer, 6);
-                } else goto identifier;
-                break;
-        
+            
             case 's':
                 if (strncmp(lexer->input + lexer->position, "size", 4) == 0) {
                     add_token(lexer, TOKEN_SIZE, "size", 4);
@@ -465,7 +452,6 @@ void tokenize(Lexer* lexer) {
                     SHIFT(lexer, 4);
                 } else goto identifier;
                 break;
-
 
             case 'd':
                 if (strncmp(lexer->input + lexer->position, "do", 2) == 0) {
@@ -860,10 +846,6 @@ void tokenize(Lexer* lexer) {
             if (strncmp(lexer->input + lexer->position, "return", 6) == 0) {
                 add_token(lexer, TOKEN_RETURN, "return", 6);
                 SHIFT(lexer, 6);
-            } else if (strncmp(lexer->input + lexer->position, "ralloc", 6) == 0) {
-                add_token(lexer, TOKEN_RALLOC, "ralloc", 6);
-                SHIFT(lexer, 6);
-
             } else goto identifier;
             break;
 

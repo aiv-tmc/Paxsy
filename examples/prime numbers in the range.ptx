@@ -1,5 +1,5 @@
-%include(base.hpi);
-%include(bool.hpi);
+#include(base.hpi);
+#include(bool.hpi);
 
 
 __main : 2int1 {
@@ -12,12 +12,12 @@ __main : 2int1 {
 
     $int i = $low;
     do($i <= $hight) {
-        $is_prime : int = %TRUE;
-        if ($i < 2) continue;
+        $is_prime : int = #TRUE;
+        if($i < 2) continue;
         $j : int = $low
         do($j * $j <= $i) {
-            if(_round($i / $j) == 0) {
-                is_prime = %FALSE;
+            if($i % $j == 0) {
+                is_prime = #FALSE;
                 break;
             }
             $j++;
@@ -27,5 +27,5 @@ __main : 2int1 {
         $i++;
     }
     syscall::write("\n", 1);
-    return(#2:0);
+    return(2x0);
 }

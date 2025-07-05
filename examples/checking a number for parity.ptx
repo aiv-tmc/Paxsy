@@ -1,6 +1,6 @@
 %include(base.hpi);
 
-__start {
+__start : 2int1 {
     $num : int;
 
     _print("Enter a number: ");

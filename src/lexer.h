@@ -27,7 +27,6 @@ typedef enum {
     TOKEN_IF,
     TOKEN_ELIF,
     TOKEN_ELSE,
-    TOKEN_DO,
     TOKEN_RETURN,
     TOKEN_FREE,
     TOKEN_BREAK,

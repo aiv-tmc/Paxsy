@@ -7,7 +7,7 @@ __start : unsig 2int1 {
 
     syscall::read($num);
 
-    if ($num % 2 == 0) { _print($num, "even number"); }
-    else { _print($num, "odd number"); }
+    if($num % 2 == 0) _print("%i even number", $num);
+    else _print($num, "odd number");
     return(2x0);
 }

@@ -1,6 +1,6 @@
 #include(base.hpi);
 
-__start : 2int1 {
+__start : unsig 2int1 {
     $num : int = 0;
 
     _print("Enter a number: ");

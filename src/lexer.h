@@ -115,6 +115,10 @@ typedef enum {
     TOKEN_TYPE,
     TOKEN_VAR_SIZE,
     TOKEN_ID,
+    TOKEN_SYSCALL,
+    TOKEN_STACK,
+    TOKEN_PUSH,
+    TOKEN_POP,
     TOKEN_EOF,
     TOKEN_ERROR
 } TokenType;

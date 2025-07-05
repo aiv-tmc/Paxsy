@@ -1,6 +1,6 @@
 #include(base.hpi);
 
-__begin : 2int1 {
+__begin : unsig 2int1 {
     _print("Hello, World!");
     return(2x0);
 }

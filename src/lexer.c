@@ -23,7 +23,7 @@ const char* token_names[] = {
     [TOKEN_GOTO]                =   "GOTO",
     [TOKEN_CONTINUE]            =   "CONTINUE",
     [TOKEN_COMPILE]             =   "COMPILE",
-    [TOKEN_PERCENT]             =   "PERCENT",
+    [TOKEN_SHART]               =   "SHARP",
     [TOKEN_PREPROC_MACRO]       =   "PREPROC_MACRO",
     [TOKEN_PREPROC_ORG]         =   "PREPROC_ORG",
     [TOKEN_PREPROC_INCLUDE]     =   "PREPROC_INCLUDE",
@@ -56,7 +56,7 @@ const char* token_names[] = {
     [TOKEN_MINUS]               =   "MINUS",
     [TOKEN_STAR]                =   "STAR",
     [TOKEN_SLASH]               =   "SLASH",
-    [TOKEN_SHARP]               =   "SHARP",
+    [TOKEN_PERCENT]             =   "PERCENT",
     [TOKEN_TILDE]               =   "TILDE",
     [TOKEN_NE_TILDE]            =   "NE_TILDE",
     [TOKEN_PIPE]                =   "PIPE",
@@ -80,6 +80,7 @@ const char* token_names[] = {
     [TOKEN_MINUS_EQ]            =   "MINUS_EQ",
     [TOKEN_STAR_EQ]             =   "STAR_EQ",
     [TOKEN_SLASH_EQ]            =   "SLASH_EQ",
+    [TOKEN_PERCENT_EQ]          =   "PERCENT_EQ",
     [TOKEN_PIPE_EQ]             =   "PIPE_EQ",
     [TOKEN_AMPERSAND_EQ]        =   "AMPERSAND_EQ",
     [TOKEN_CARET_EQ]            =   "CARET_EQ",
@@ -101,7 +102,6 @@ const char* token_names[] = {
     [TOKEN_RPAREN]              =   "RPAREN",
     [TOKEN_SIZE]                =   "SIZE",
     [TOKEN_PARSE]               =   "PARSE",
-    [TOKEN_DELETE]              =   "DELETE",
     [TOKEN_MALLOC]              =   "MALLOC",
     [TOKEN_EALLOC]              =   "EALLOC",
     [TOKEN_RALLOC]              =   "RALLOC",
@@ -471,9 +471,6 @@ void tokenize(Lexer* lexer) {
                 if (strncmp(lexer->input + lexer->position, "do", 2) == 0) {
                     add_token(lexer, TOKEN_DO, "do", 2);
                     SHIFT(lexer, 2);
-                } else if (strncmp(lexer->input + lexer->position, "delete", 6) == 0) {
-                    add_token(lexer, TOKEN_DELETE, "delete", 6);
-                    SHIFT(lexer, 6);
                 } else goto identifier;
                 break;
 
@@ -598,6 +595,16 @@ void tokenize(Lexer* lexer) {
             }
             break;
 
+        case '%':
+            if (NEXT(lexer, 1) == '=') {
+                add_token(lexer, TOKEN_PERCENT_EQ, "%=", 2);
+                SHIFT(lexer, 2);
+            } else {
+                add_token(lexer, TOKEN_PERCENT, "%", 1);
+                SHIFT(lexer, 1);
+            }
+            break;
+
         case '|':
             if (NEXT(lexer, 1) == '|') {
                 add_token(lexer, TOKEN_DOUBLE_PIPE, "||", 2);
@@ -688,7 +695,7 @@ void tokenize(Lexer* lexer) {
             }
             break;
 
-        case '#':
+        /*case '#':
             add_token(lexer, TOKEN_SHARP, "#", 1);
             SHIFT(lexer, 1);
 
@@ -728,7 +735,7 @@ void tokenize(Lexer* lexer) {
             int num_len = lexer->position - num_start;
             TokenType type = is_real ? TOKEN_REAL : TOKEN_INT;
             add_token(lexer, type, lexer->input + num_start, num_len);
-            break;
+            break;*/
 
         case '~':
             if (NEXT(lexer, 1) == '=') {
@@ -860,45 +867,45 @@ void tokenize(Lexer* lexer) {
             } else goto identifier;
             break;
 
-        case '%':
-            if (strncmp(lexer->input + lexer->position, "\%org", 4) == 0) {
+        case '#':
+            if (strncmp(lexer->input + lexer->position, "#org", 4) == 0) {
             add_token(lexer, TOKEN_PREPROC_ORG, "org", 3);
             SHIFT(lexer, 4);
-            } else if (strncmp(lexer->input + lexer->position, "\%include", 8) == 0) {
+            } else if (strncmp(lexer->input + lexer->position, "#include", 8) == 0) {
                 add_token(lexer, TOKEN_PREPROC_INCLUDE, "include", 7);
                 SHIFT(lexer, 8);
-            } else if (strncmp(lexer->input + lexer->position, "\%define", 7) == 0) {
+            } else if (strncmp(lexer->input + lexer->position, "#define", 7) == 0) {
                 add_token(lexer, TOKEN_PREPROC_DEFINE, "define", 6);
                 SHIFT(lexer, 7);
-            } else if (strncmp(lexer->input + lexer->position, "\%assign", 7) == 0) {
+            } else if (strncmp(lexer->input + lexer->position, "#assign", 7) == 0) {
                 add_token(lexer, TOKEN_PREPROC_ASSIGN, "assign", 6);
                 SHIFT(lexer, 7);
-            } else if (strncmp(lexer->input + lexer->position, "\%undef", 6) == 0) {
+            } else if (strncmp(lexer->input + lexer->position, "#undef", 6) == 0) {
                 add_token(lexer, TOKEN_PREPROC_UNDEF, "undef", 5);
                 SHIFT(lexer, 6);
-            } else if (strncmp(lexer->input + lexer->position, "\%ifdef", 6) == 0) {
+            } else if (strncmp(lexer->input + lexer->position, "#ifdef", 6) == 0) {
                 add_token(lexer, TOKEN_PREPROC_IFDEF, "ifdef", 5);
                 SHIFT(lexer, 6);
-            } else if (strncmp(lexer->input + lexer->position, "\%ifndef", 6) == 0) {
+            } else if (strncmp(lexer->input + lexer->position, "#ifndef", 6) == 0) {
                 add_token(lexer, TOKEN_PREPROC_IFNDEF, "ifndef", 6);
                 SHIFT(lexer, 6);
-            } else if (strncmp(lexer->input + lexer->position, "\%endif", 6) == 0) {
+            } else if (strncmp(lexer->input + lexer->position, "#endif", 6) == 0) {
                 add_token(lexer, TOKEN_PREPROC_ENDIF, "endif", 5);
                 SHIFT(lexer, 6);
-            } else if (strncmp(lexer->input + lexer->position, "\%line", 5) == 0) {
+            } else if (strncmp(lexer->input + lexer->position, "#line", 5) == 0) {
                 add_token(lexer, TOKEN_PREPROC_LINE, "line", 4);
                 SHIFT(lexer, 5);
-            } else if (strncmp(lexer->input + lexer->position, "\%error", 6) == 0) {
+            } else if (strncmp(lexer->input + lexer->position, "#error", 6) == 0) {
                 add_token(lexer, TOKEN_PREPROC_ERROR, "error", 5);
                 SHIFT(lexer, 6);
-            } else if (strncmp(lexer->input + lexer->position, "\%pragma", 7) == 0) {
+            } else if (strncmp(lexer->input + lexer->position, "#pragma", 7) == 0) {
                 add_token(lexer, TOKEN_PREPROC_PRAGMA, "pragma", 6);
                 SHIFT(lexer, 7);
-            } else if (strncmp(lexer->input + lexer->position, "\%macro", 6) == 0) {
+            } else if (strncmp(lexer->input + lexer->position, "#macro", 6) == 0) {
                 add_token(lexer, TOKEN_PREPROC_MACRO, "macro", 5);
                 SHIFT(lexer, 6);
             } else {
-                add_token(lexer, TOKEN_PERCENT, "\%", 1);
+                add_token(lexer, TOKEN_SHARP, "#", 1);
                 SHIFT(lexer, 1);
             }
             break;

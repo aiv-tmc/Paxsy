@@ -25,7 +25,7 @@ You must have installed [project dependencies](https://github.com/aiv-tmc/Paxsi#
 ```gcc error_manager.c lexer.c parser.c main.c -o pxi```
 
 4. Launch a project
-```./PXI3.3w8f2 -c <sourse_file.ptx>```
+```./PXI3.3w8f2 -c <sourse_file.px>```
 
 <!--Documentation-->
 ## Documentation

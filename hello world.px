@@ -1,0 +1,6 @@
+#include(console::output.hp);
+
+__begin {
+    console::output("Hello, World!");
+    return(0);
+}

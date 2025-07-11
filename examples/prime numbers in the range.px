@@ -1,0 +1,26 @@
+#include(console.hp);
+#include(bool.hp);
+#include(cyclic.hp);
+
+__begin {
+    $low, $hight : int8;
+    console:output("Enter the range (lower and upper bounds): ");
+    console::input($low, $hight);
+    console::output("\n")
+    console::output("Prime numbers in the range: %i8, %i8\n", $low, $hight);
+
+    for($i : int8 = $low; $i <= $hight, $i++) {
+        $is_prime : bool = TRUE;
+        if($i < 2) continue;
+        for($j : int = $low; $j * $j <= $i; $j++) {
+            if($i % $j == 0) {
+                is_prime = FALSE;
+                break;
+            }
+        }
+
+        if($is_prime) console::output("%i", $i);
+    }
+    console::output("\n")
+    syscall::exit;
+}

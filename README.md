@@ -16,7 +16,7 @@ Stable: [paxsi_v0.3.3w7f2](https://github.com/aiv-tmc/MyLang/tree/main/paxsi_v0.
 You must have installed [project dependencies](https://github.com/aiv-tmc/Paxsi#dependencies)
 
 1. Cloning a repository
-```git clone https://github.com/aiv-tmc/Paxsi/edit/main```
+```git clone https://github.com/aiv-tmc/Paxsi/main.git```
 
 2. Going to the directory with the code
 ```cd Paxsi-PXI-3.4w1f2/src/```

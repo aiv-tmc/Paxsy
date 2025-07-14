@@ -5,9 +5,9 @@ The **paxsi** project is freely available under the MIT license. You can read it
 
 <!--Status of versions-->
 ## Status of versions
-Newest: [PXI 3.4w1](https://github.com/aiv-tmc/Paxsi/tree/PXI-3.4w1)
+Newest: [PXI 3.4w1f2](https://github.com/aiv-tmc/Paxsi/tree/PXI-3.4w1f2)
 
-Current: [PXI 3.4](https://github.com/aiv-tmc/Paxsi/tree/PXI-3.4)
+Current: [PXI 3.4w1](https://github.com/aiv-tmc/Paxsi/tree/PXI-3.4w1)
 
 Stable: [paxsi_v0.3.3w7f2](https://github.com/aiv-tmc/MyLang/tree/main/paxsi_v0.3.3w7f2)
 
@@ -16,16 +16,16 @@ Stable: [paxsi_v0.3.3w7f2](https://github.com/aiv-tmc/MyLang/tree/main/paxsi_v0.
 You must have installed [project dependencies](https://github.com/aiv-tmc/Paxsi#dependencies)
 
 1. Cloning a repository
-```git clone https://github.com/OkulusDev/Oxygen.git```
+```git clone https://github.com/aiv-tmc/Paxsi/edit/main```
 
 2. Going to the directory with the code
-```cd PXI-3.4w1/src/```
+```cd Paxsi-PXI-3.4w1f2/src/```
 
 3. Compile the prototype
-```gcc error_manager.c lexer.c parser.c main.c -o PXI```
+```gcc error_manager.c lexer.c parser.c main.c -o pxi```
 
 4. Launch a project
-```./PXI -c <sourse_file.px>```
+```./pxi -c <sourse_file.px>```
 
 <!--Documentation-->
 ## Documentation

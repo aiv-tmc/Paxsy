@@ -19,7 +19,7 @@ You must have installed [project dependencies](https://github.com/aiv-tmc/Paxsi#
 ```git clone https://github.com/OkulusDev/Oxygen.git```
 
 2. Going to the directory with the code
-```cd PXI-3.4w1f2/src/```
+```cd Paxsi-PXI-3.4w1f2/src/```
 
 3. Compile the prototype
 ```gcc error_manager.c lexer.c parser.c main.c -o pxi```

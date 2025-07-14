@@ -1,4 +1,6 @@
 # Paxsi
+An open-source programming language. The language is currently under active development.
+
 The **paxsi** project is freely available under the MIT license. You can read it at [this link](https://github.com/aiv-tmc/Paxsi/blob/main/LICENSE).
 
 <!--Status of versions-->
@@ -34,7 +36,5 @@ The documentation can be obtained at [this link](./docs/index.md).
 This program depends on the **gcc** interpreter version **15.1** or higher.
 
 ---
-
-!From June **2** to June **13**, work on the project will be stopped.
 
 *Previous versions of the programming language can be viewed here: https://github.com/aiv-tmc/MyLang*

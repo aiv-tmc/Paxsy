@@ -2,7 +2,7 @@ EN/EN
 Hi. 
 I am currently looking for people who are willing to help me with the Paxsi project. 
 In order to participate in the creation of the main direction of the Paxsi project, 
-you need to know the C programming language, Assembler x86_64 (one or more of the suggested ones is recommended: NASM, YASM, FASM, GAS), 
+you need to know the C programming language, Assembler x86_64 (NASM, YASM or FASM), 
 and understand Computer Science and the process of translating programming languages at a basic level. 
 
 If you want to join, 
@@ -12,7 +12,7 @@ then remember that the project is created on enthusiasm and does not involve its
 Привет. 
 Сейчас я ищу людей, которые готовы мне помочь с проектом Paxsi. 
 Для того чтобы участвовать в создании основного направления проекта Paxsi, 
-вам необходимо знать язык программирования C, Assembler x86_64 (рекомендован один или несколько из предложенных: NASM, YASM, FASM, GAS), 
+вам необходимо знать язык программирования C, Assembler x86_64 (NASM, YASM или FASM), 
 на базовом уровне понимать Computer Science и процесс трансляции языков программирования. 
 
 Если вы захотите присоединиться, 
@@ -22,7 +22,7 @@ then remember that the project is created on enthusiasm and does not involve its
 嗨。. 
 我目前正在寻找愿意帮助我完成Paxsi项目的人。 
 为了参与创建Paxsi项目的主要方向,
-你需要知道C编程语言，汇编语言x86_64（建议一个或多个：NASM，YASM，FASM，GAS）,
+你需要知道C编程语言，汇编语言x86_64（NASM，YASM或FASM）,
 并在基本层面上了解计算机科学和翻译编程语言的过程。 
 
 如果你想加入,

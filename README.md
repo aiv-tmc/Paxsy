@@ -85,7 +85,7 @@ This program depends on the **gcc** interpreter version **15.1** or higher.
 
 ## Message from the author
 
-### EN/EN
+##### EN/EN
 Hi. 
 I am currently looking for people who are willing to help me with the Paxsi project. 
 In order to participate in the creation of the main direction of the Paxsi project, 
@@ -97,7 +97,7 @@ then remember that the project is created on enthusiasm and does not involve its
 
 ---
 
-### РУ/RU
+##### РУ/RU
 Привет. 
 Сейчас я ищу людей, которые готовы мне помочь с проектом Paxsi. 
 Для того чтобы участвовать в создании основного направления проекта Paxsi, 
@@ -109,7 +109,7 @@ then remember that the project is created on enthusiasm and does not involve its
 
 ---
 
-### 中文/ZH
+##### 中文/ZH
 嗨。. 
 我目前正在寻找愿意帮助我完成Paxsi项目的人。 
 为了参与创建Paxsi项目的主要方向,

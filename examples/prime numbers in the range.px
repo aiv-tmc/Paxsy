@@ -1,6 +1,7 @@
 #include(console.hp);
 #include(bool.hp);
 #include(cyclic.hp);
+#include(sysword.hp);
 
 __begin {
     $low, $hight : int8;
@@ -23,5 +24,5 @@ __begin {
     }
     console::output("\n")
     syscall::exit;
+    return; // For Windows
 }
-

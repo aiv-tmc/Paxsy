@@ -1,4 +1,5 @@
 #include(console.hp);
+#include(sysword.hp);
 
 __begin {
     $num : int = 0;
@@ -10,5 +11,5 @@ __begin {
     else console::output("%i odd number", $num);
     
     syscall::exit;
+    return; // For Windows
 }
-

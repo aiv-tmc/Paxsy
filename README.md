@@ -5,11 +5,11 @@ The **paxsi** project is freely available under the MIT license. You can read it
 
 <!--Status of versions-->
 ## Status of versions
-Newest: [paxsi_3.5.11](https://github.com/aiv-tmc/Paxsi/paxsi_3.5.11)
+Newest: [paxsi_3.5.11](https://github.com/aiv-tmc/Paxsi/tree/paxsi_3.5.11)
 
-Current: [pxi 3.4f6](https://github.com/aiv-tmc/Paxsi/pxi-3.4w2f6)
+Current: [pxi 3.4f6](https://github.com/aiv-tmc/Paxsi/tree/pxi-3.4w2f6)
 
-Stable: [PXI 3.4](https://github.com/aiv-tmc/Paxsi/PXI-3.4)
+Stable: [PXI 3.4](https://github.com/aiv-tmc/Paxsi/tree/PXI-3.4)
 
 <!--Install-->
 ## Install (Linux)

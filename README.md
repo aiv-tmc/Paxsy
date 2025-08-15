@@ -20,13 +20,16 @@ You must have installed [project dependencies](https://github.com/aiv-tmc/Paxsi#
 `git clone https://github.com/aiv-tmc/Paxsi.git`
 
 2. Going to the directory with the code
-`cd Paxsi/src/`
+`cd ~/Download/Paxsi/src/`
 
 3. Compile the prototype
-`gcc error_manager.c lexer.c parser.c main.c -o pxi`
+`gcc lexer/lexer.c parser/parser.c error_manager/error_manager.c main.c -o paxsi`
 
-4. Launch a project
-`./pxi -c <sourse.px>`
+4. Moving to the root directory
+`sudo cp ~/Download/Paxsi/paxsi /usr/local/bin`
+
+5. Launch a project
+`paxsi -c <sourse.px> -n="file_name"`
 
 <!--Documentation-->
 ## Documentation

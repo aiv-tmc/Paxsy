@@ -1,8 +1,0 @@
-#include(console::output.hp);
-#include(sysword.hp);
-
-__begin {
-    console::output("Hello, World!");
-    syscall::exit;
-    return; // For Windows
-}

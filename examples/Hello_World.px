@@ -1,0 +1,11 @@
+#program "Hello World";
+
+#include(console.h);
+#include(sysword.h);
+
+_start {
+    console(stdout("Hello, World!"));
+    syscall::exit;
+    return; // for Windows
+}
+

@@ -1,0 +1,91 @@
+#ifndef PARSER_H
+#define PARSER_H
+
+#include <stdint.h>
+#include "../lexer/lexer.h"
+#include "../error_manager/error_manager.h"
+
+typedef enum {
+    AST_VARIABLE_DECLARATION,
+    AST_BINARY_OPERATION,
+    AST_UNARY_OPERATION,
+    AST_LITERAL_VALUE,
+    AST_IDENTIFIER,
+    AST_VARIABLE,
+    AST_POINTER_VARIABLE,
+    AST_REFERENCE_VARIABLE,
+    AST_DEREFERENCE,
+    AST_ADDRESS_OF,
+    AST_ASSIGNMENT,
+    AST_COMPOUND_ASSIGNMENT,
+    AST_BLOCK,
+    AST_FUNCTION,
+    AST_FUNCTION_CALL,
+    AST_NULL,
+    AST_NULLPTR,
+    AST_IF_STATEMENT,
+    AST_ELSE_STATEMENT,
+    AST_RETURN,
+    AST_FREE,
+    AST_BREAK,
+    AST_SIZE,
+    AST_PARSER,
+    AST_REALLOC,
+    AST_ALLOC,
+    AST_STACK,
+    AST_PUSH,
+    AST_POP,
+    AST_STRUCT_DECLARATION,
+    AST_STRUCT_INSTANCE,
+    AST_CAST,
+    AST_INT,
+    AST_SELF,
+    AST_PUBLIC,
+    AST_MULTI_DECLARATION,
+    AST_MULTI_ASSIGNMENT,
+    AST_ARRAY_INITIALIZER,
+    AST_PREPROCESSOR_DIRECTIVE,
+    AST_ARRAY_ACCESS,
+    AST_LABEL_DECLARATION,
+    AST_LABEL_CALL
+} ASTNodeType;
+
+typedef struct {
+    char *name;
+    uint8_t left_number;
+    uint8_t right_number;
+    uint16_t array_size;
+    char **modifiers;
+    uint8_t modifier_count;
+    uint8_t is_pointer;
+    uint8_t is_reference;
+    uint8_t is_array;
+} Type;
+
+typedef struct ASTNode {
+    ASTNodeType type;
+    TokenType operation_type;
+    char *value;
+    struct ASTNode *left;
+    struct ASTNode *right;
+    struct ASTNode *extra;
+    Type *variable_type;
+    Type *return_type;
+    TokenType declaration_sigil;
+    uint8_t is_variadic;
+} ASTNode;
+
+typedef struct {
+    ASTNode **nodes;
+    uint16_t count;
+    uint16_t capacity;
+} AST;
+
+AST *parse(Token *tokens, int token_count);
+void free_ast(AST *ast);
+void print_ast(AST *ast);
+void free_type(Type *type);
+void free_ast_node(ASTNode *node);
+
+#endif
+

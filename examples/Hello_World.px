@@ -1,9 +1,0 @@
-%include(console.h)
-%include(syscall.h)
-
-.start {
-    console(stdout("Hello, World!\n"));
-    syscall::exit;
-    return; // for Windows
-}
-

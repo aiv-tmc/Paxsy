@@ -1,0 +1,39 @@
+%include(console.h)
+%include(bool.h)
+%include(cyclic.h)
+%include(syscall.h)
+
+.start void {
+    $low, $hight 10num:8;
+
+    console(
+        stdout("Enter the range (lower and upper bounds): "),
+        stdin($low, $hight),
+        stdout('\n');
+        stdout(
+            "Prime numbers in the range: ",
+            $low,
+            ", ",
+            $hight,
+            '\n'
+        )
+    );
+
+    for ($i 10num:8 = $low; $i <= $hight, $i++) {
+        $is_prime bool = true;
+        if ($i < 2) -> continue;
+        for ($j 10num:8 = $low; $j * $j <= $i; $j++) {
+            if($i % $j == 0) {
+                is_prime = false;
+                break;
+            }
+        }
+
+        if($is_prime) -> console(stdout("%d8", $i));
+    }
+    console(stdout('\n'));
+
+    syscall::exit;
+    return; # for Windows
+}
+

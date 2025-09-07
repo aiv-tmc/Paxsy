@@ -1,0 +1,20 @@
+%include(console.h)
+%include(syscall.h)
+
+.start void {
+    $number 10num:8 = 0;
+
+    console(
+        stdout("Enter a number: "),
+        stdin($number),
+        stdout('\n')
+    );
+
+    if($number % 2 == 0) {
+        console(stdout($number, " even number"));
+    } else -> console(stdout($number, " odd number"));
+    
+    syscall::exit;
+    return; # for Windows
+}
+

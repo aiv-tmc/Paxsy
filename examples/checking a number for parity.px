@@ -1,0 +1,17 @@
+#include(console.h)
+#include(sor.h)
+
+func start {
+    var number : 10int<8> = 0;
+
+    console
+        ( stdout("Enter a number: ")
+        , stdin(number)
+        , stdout('\n') );
+
+    if (number % 2 == 0) => console(stdout(number, " even number"));
+    else => console(stdout(number, " odd number"));
+    
+    sor:exit;
+}
+

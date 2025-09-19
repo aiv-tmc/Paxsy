@@ -1,0 +1,8 @@
+#include(console.h)
+#include(sor.h)
+
+func start {
+    console(stdout("Hello, World!\n"));
+    sor : exit;
+}
+

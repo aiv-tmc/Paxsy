@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.px,*.hp set filetype=paxsy
+au BufRead,BufNewFile *.px set filetype=paxsy

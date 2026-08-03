@@ -1,965 +1,535 @@
-/* Copyright (c) 2026 aiv-tmc
- * This software is released under the MIT License.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+/*
+ * Mozilla Public License Version 2.0
+ * ==================================
+ * 
+ * 1. Definitions
+ * --------------
+ * 
+ * 1.1. "Contributor"
+ *     means each individual or legal entity that creates, contributes to
+ *     the creation of, or owns Covered Software.
+ * 
+ * 1.2. "Contributor Version"
+ *     means the combination of the Contributions of others (if any) used
+ *     by a Contributor and that particular Contributor's Contribution.
+ * 
+ * 1.3. "Contribution"
+ *     means Covered Software of a particular Contributor.
+ * 
+ * 1.4. "Covered Software"
+ *     means Source Code Form to which the initial Contributor has attached
+ *     the notice in Exhibit A, the Executable Form of such Source Code
+ *     Form, and Modifications of such Source Code Form, in each case
+ *     including portions thereof.
+ * 
+ * 1.5. "Incompatible With Secondary Licenses"
+ *     means
+ * 
+ *     (a) that the initial Contributor has attached the notice described
+ *         in Exhibit B to the Covered Software; or
+ * 
+ *     (b) that the Covered Software was made available under the terms of
+ *         version 1.1 or earlier of the License, but not also under the
+ *         terms of a Secondary License.
+ * 
+ * 1.6. "Executable Form"
+ *     means any form of the work other than Source Code Form.
+ * 
+ * 1.7. "Larger Work"
+ *     means a work that combines Covered Software with other material, in
+ *     a separate file or files, that is not Covered Software.
+ * 
+ * 1.8. "License"
+ *     means this document.
+ * 
+ * 1.9. "Licensable"
+ *     means having the right to grant, to the maximum extent possible,
+ *     whether at the time of the initial grant or subsequently, any and
+ *     all of the rights conveyed by this License.
+ * 
+ * 1.10. "Modifications"
+ *     means any of the following:
+ * 
+ *     (a) any file in Source Code Form that results from an addition to,
+ *         deletion from, or modification of the contents of Covered
+ *         Software; or
+ * 
+ *     (b) any new file in Source Code Form that contains any Covered
+ *         Software.
+ * 
+ * 1.11. "Patent Claims" of a Contributor
+ *     means any patent claim(s), including without limitation, method,
+ *     process, and apparatus claims, in any patent Licensable by such
+ *     Contributor that would be infringed, but for the grant of the
+ *     License, by the making, using, selling, offering for sale, having
+ *     made, import, or transfer of either its Contributions or its
+ *     Contributor Version.
+ * 
+ * 1.12. "Secondary License"
+ *     means either the GNU General Public License, Version 2.0, the GNU
+ *     Lesser General Public License, Version 2.1, the GNU Affero General
+ *     Public License, Version 3.0, or any later versions of those
+ *     licenses.
+ * 
+ * 1.13. "Source Code Form"
+ *     means the form of the work preferred for making modifications.
+ * 
+ * 1.14. "You" (or "Your")
+ *     means an individual or a legal entity exercising rights under this
+ *     License. For legal entities, "You" includes any entity that
+ *     controls, is controlled by, or is under common control with You. For
+ *     purposes of this definition, "control" means (a) the power, direct
+ *     or indirect, to cause the direction or management of such entity,
+ *     whether by contract or otherwise, or (b) ownership of more than
+ *     fifty percent (50%) of the outstanding shares or beneficial
+ *     ownership of such entity.
+ * 
+ * 2. License Grants and Conditions
+ * --------------------------------
+ * 
+ * 2.1. Grants
+ * 
+ * Each Contributor hereby grants You a world-wide, royalty-free,
+ * non-exclusive license:
+ * 
+ * (a) under intellectual property rights (other than patent or trademark)
+ *     Licensable by such Contributor to use, reproduce, make available,
+ *     modify, display, perform, distribute, and otherwise exploit its
+ *     Contributions, either on an unmodified basis, with Modifications, or
+ *     as part of a Larger Work; and
+ * 
+ * (b) under Patent Claims of such Contributor to make, use, sell, offer
+ *     for sale, have made, import, and otherwise transfer either its
+ *     Contributions or its Contributor Version.
+ * 
+ * 2.2. Effective Date
+ * 
+ * The licenses granted in Section 2.1 with respect to any Contribution
+ * become effective for each Contribution on the date the Contributor first
+ * distributes such Contribution.
+ * 
+ * 2.3. Limitations on Grant Scope
+ * 
+ * The licenses granted in this Section 2 are the only rights granted under
+ * this License. No additional rights or licenses will be implied from the
+ * distribution or licensing of Covered Software under this License.
+ * Notwithstanding Section 2.1(b) above, no patent license is granted by a
+ * Contributor:
+ * 
+ * (a) for any code that a Contributor has removed from Covered Software;
+ *     or
+ * 
+ * (b) for infringements caused by: (i) Your and any other third party's
+ *     modifications of Covered Software, or (ii) the combination of its
+ *     Contributions with other software (except as part of its Contributor
+ *     Version); or
+ * 
+ * (c) under Patent Claims infringed by Covered Software in the absence of
+ *     its Contributions.
+ * 
+ * This License does not grant any rights in the trademarks, service marks,
+ * or logos of any Contributor (except as may be necessary to comply with
+ * the notice requirements in Section 3.4).
+ * 
+ * 2.4. Subsequent Licenses
+ * 
+ * No Contributor makes additional grants as a result of Your choice to
+ * distribute the Covered Software under a subsequent version of this
+ * License (see Section 10.2) or under the terms of a Secondary License (if
+ * permitted under the terms of Section 3.3).
+ * 
+ * 2.5. Representation
+ * 
+ * Each Contributor represents that the Contributor believes its
+ * Contributions are its original creation(s) or it has sufficient rights
+ * to grant the rights to its Contributions conveyed by this License.
+ * 
+ * 2.6. Fair Use
+ * 
+ * This License is not intended to limit any rights You have under
+ * applicable copyright doctrines of fair use, fair dealing, or other
+ * equivalents.
+ * 
+ * 2.7. Conditions
+ * 
+ * Sections 3.1, 3.2, 3.3, and 3.4 are conditions of the licenses granted
+ * in Section 2.1.
+ * 
+ * 3. Responsibilities
+ * -------------------
+ * 
+ * 3.1. Distribution of Source Form
+ * 
+ * All distribution of Covered Software in Source Code Form, including any
+ * Modifications that You create or to which You contribute, must be under
+ * the terms of this License. You must inform recipients that the Source
+ * Code Form of the Covered Software is governed by the terms of this
+ * License, and how they can obtain a copy of this License. You may not
+ * attempt to alter or restrict the recipients' rights in the Source Code
+ * Form.
+ * 
+ * 3.2. Distribution of Executable Form
+ * 
+ * If You distribute Covered Software in Executable Form then:
+ * 
+ * (a) such Covered Software must also be made available in Source Code
+ *     Form, as described in Section 3.1, and You must inform recipients of
+ *     the Executable Form how they can obtain a copy of such Source Code
+ *     Form by reasonable means in a timely manner, at a charge no more
+ *     than the cost of distribution to the recipient; and
+ * 
+ * (b) You may distribute such Executable Form under the terms of this
+ *     License, or sublicense it under different terms, provided that the
+ *     license for the Executable Form does not attempt to limit or alter
+ *     the recipients' rights in the Source Code Form under this License.
+ * 
+ * 3.3. Distribution of a Larger Work
+ * 
+ * You may create and distribute a Larger Work under terms of Your choice,
+ * provided that You also comply with the requirements of this License for
+ * the Covered Software. If the Larger Work is a combination of Covered
+ * Software with a work governed by one or more Secondary Licenses, and the
+ * Covered Software is not Incompatible With Secondary Licenses, this
+ * License permits You to additionally distribute such Covered Software
+ * under the terms of such Secondary License(s), so that the recipient of
+ * the Larger Work may, at their option, further distribute the Covered
+ * Software under the terms of either this License or such Secondary
+ * License(s).
+ * 
+ * 3.4. Notices
+ * 
+ * You may not remove or alter the substance of any license notices
+ * (including copyright notices, patent notices, disclaimers of warranty,
+ * or limitations of liability) contained within the Source Code Form of
+ * the Covered Software, except that You may alter any license notices to
+ * the extent required to remedy known factual inaccuracies.
+ * 
+ * 3.5. Application of Additional Terms
+ * 
+ * You may choose to offer, and to charge a fee for, warranty, support,
+ * indemnity or liability obligations to one or more recipients of Covered
+ * Software. However, You may do so only on Your own behalf, and not on
+ * behalf of any Contributor. You must make it absolutely clear that any
+ * such warranty, support, indemnity, or liability obligation is offered by
+ * You alone, and You hereby agree to indemnify every Contributor for any
+ * liability incurred by such Contributor as a result of warranty, support,
+ * indemnity or liability terms You offer. You may include additional
+ * disclaimers of warranty and limitations of liability specific to any
+ * jurisdiction.
+ * 
+ * 4. Inability to Comply Due to Statute or Regulation
+ * ---------------------------------------------------
+ * 
+ * If it is impossible for You to comply with any of the terms of this
+ * License with respect to some or all of the Covered Software due to
+ * statute, judicial order, or regulation then You must: (a) comply with
+ * the terms of this License to the maximum extent possible; and (b)
+ * describe the limitations and the code they affect. Such description must
+ * be placed in a text file included with all distributions of the Covered
+ * Software under this License. Except to the extent prohibited by statute
+ * or regulation, such description must be sufficiently detailed for a
+ * recipient of ordinary skill to be able to understand it.
+ * 
+ * 5. Termination
+ * --------------
+ * 
+ * 5.1. The rights granted under this License will terminate automatically
+ * if You fail to comply with any of its terms. However, if You become
+ * compliant, then the rights granted under this License from a particular
+ * Contributor are reinstated (a) provisionally, unless and until such
+ * Contributor explicitly and finally terminates Your grants, and (b) on an
+ * ongoing basis, if such Contributor fails to notify You of the
+ * non-compliance by some reasonable means prior to 60 days after You have
+ * come back into compliance. Moreover, Your grants from a particular
+ * Contributor are reinstated on an ongoing basis if such Contributor
+ * notifies You of the non-compliance by some reasonable means, this is the
+ * first time You have received notice of non-compliance with this License
+ * from such Contributor, and You become compliant prior to 30 days after
+ * Your receipt of the notice.
+ * 
+ * 5.2. If You initiate litigation against any entity by asserting a patent
+ * infringement claim (excluding declaratory judgment actions,
+ * counter-claims, and cross-claims) alleging that a Contributor Version
+ * directly or indirectly infringes any patent, then the rights granted to
+ * You by any and all Contributors for the Covered Software under Section
+ * 2.1 of this License shall terminate.
+ * 
+ * 5.3. In the event of termination under Sections 5.1 or 5.2 above, all
+ * end user license agreements (excluding distributors and resellers) which
+ * have been validly granted by You or Your distributors under this License
+ * prior to termination shall survive termination.
+ * 
+ * ************************************************************************
+ * *                                                                      *
+ * *  6. Disclaimer of Warranty                                           *
+ * *  -------------------------                                           *
+ * *                                                                      *
+ * *  Covered Software is provided under this License on an "as is"       *
+ * *  basis, without warranty of any kind, either expressed, implied, or  *
+ * *  statutory, including, without limitation, warranties that the       *
+ * *  Covered Software is free of defects, merchantable, fit for a        *
+ * *  particular purpose or non-infringing. The entire risk as to the     *
+ * *  quality and performance of the Covered Software is with You.        *
+ * *  Should any Covered Software prove defective in any respect, You     *
+ * *  (not any Contributor) assume the cost of any necessary servicing,   *
+ * *  repair, or correction. This disclaimer of warranty constitutes an   *
+ * *  essential part of this License. No use of any Covered Software is   *
+ * *  authorized under this License except under this disclaimer.         *
+ * *                                                                      *
+ * ************************************************************************
+ * 
+ * ************************************************************************
+ * *                                                                      *
+ * *  7. Limitation of Liability                                          *
+ * *  --------------------------                                          *
+ * *                                                                      *
+ * *  Under no circumstances and under no legal theory, whether tort      *
+ * *  (including negligence), contract, or otherwise, shall any           *
+ * *  Contributor, or anyone who distributes Covered Software as          *
+ * *  permitted above, be liable to You for any direct, indirect,         *
+ * *  special, incidental, or consequential damages of any character      *
+ * *  including, without limitation, damages for lost profits, loss of    *
+ * *  goodwill, work stoppage, computer failure or malfunction, or any    *
+ * *  and all other commercial damages or losses, even if such party      *
+ * *  shall have been informed of the possibility of such damages. This   *
+ * *  limitation of liability shall not apply to liability for death or   *
+ * *  personal injury resulting from such party's negligence to the       *
+ * *  extent applicable law prohibits such limitation. Some               *
+ * *  jurisdictions do not allow the exclusion or limitation of           *
+ * *  incidental or consequential damages, so this exclusion and          *
+ * *  limitation may not apply to You.                                    *
+ * *                                                                      *
+ * ************************************************************************
+ * 
+ * 8. Litigation
+ * -------------
+ * 
+ * Any litigation relating to this License may be brought only in the
+ * courts of a jurisdiction where the defendant maintains its principal
+ * place of business and such litigation shall be governed by laws of that
+ * jurisdiction, without reference to its conflict-of-law provisions.
+ * Nothing in this Section shall prevent a party's ability to bring
+ * cross-claims or counter-claims.
+ * 
+ * 9. Miscellaneous
+ * ----------------
+ * 
+ * This License represents the complete agreement concerning the subject
+ * matter hereof. If any provision of this License is held to be
+ * unenforceable, such provision shall be reformed only to the extent
+ * necessary to make it enforceable. Any law or regulation which provides
+ * that the language of a contract shall be construed against the drafter
+ * shall not be used to construe this License against a Contributor.
+ * 
+ * 10. Versions of the License
+ * ---------------------------
+ * 
+ * 10.1. New Versions
+ * 
+ * Mozilla Foundation is the license steward. Except as provided in Section
+ * 10.3, no one other than the license steward has the right to modify or
+ * publish new versions of this License. Each version will be given a
+ * distinguishing version number.
+ * 
+ * 10.2. Effect of New Versions
+ * 
+ * You may distribute the Covered Software under the terms of the version
+ * of the License under which You originally received the Covered Software,
+ * or under the terms of any subsequent version published by the license
+ * steward.
+ * 
+ * 10.3. Modified Versions
+ * 
+ * If you create software not governed by this License, and you want to
+ * create a new license for such software, you may create and use a
+ * modified version of this License if you rename the license and remove
+ * any references to the name of the license steward (except to note that
+ * such modified license differs from this License).
+ * 
+ * 10.4. Distributing Source Code Form that is Incompatible With Secondary
+ * Licenses
+ * 
+ * If You choose to distribute Source Code Form that is Incompatible With
+ * Secondary Licenses under the terms of this version of the License, the
+ * notice described in Exhibit B of this License must be attached.
+ * 
+ * Exhibit A - Source Code Form License Notice
+ * -------------------------------------------
+ * 
+ *   This Source Code Form is subject to the terms of the Mozilla Public
+ *   License, v. 2.0. If a copy of the MPL was not distributed with this
+ *   file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ * 
+ * If it is not possible or desirable to put the notice in a particular
+ * file, then You may include the notice in a location (such as a LICENSE
+ * file in a relevant directory) where a recipient would be likely to look
+ * for such a notice.
+ * 
+ * You may add additional accurate notices of copyright ownership.
+ * 
+ * Exhibit B - "Incompatible With Secondary Licenses" Notice
+ * ---------------------------------------------------------
+ * 
+ *   This Source Code Form is "Incompatible With Secondary Licenses", as
+ *   defined by the Mozilla Public License, v. 2.0.
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include <stdint.h>
 #include <stdbool.h>
+#include <stddef.h>
 
-#include "preprocessor/preprocessor.h"
-#include "preprocessor/defmacros/defmacros.h"
-#include "lexer/lexer.h"
-#include "parser/parser.h"
-#include "output/output.h"
-#include "semantic/semantic.h"
-#include "optimizer/optimizer.h"
-#include "ir/ir.h"
-#include "errhandler/errhandler.h"
-#include "utils/str_utils.h"
-#include "utils/char_utils.h"
-#include "utils/memory_utils.h"
-#include "utils/common.h"
+#include "cli/commands.h"
+#include "interfaces/errhandler/errhandler.h"
+#include "interfaces/utils/memory.h"
 
-#ifndef GENERATION
-#define GENERATION "missing"
-#endif
-#ifndef NAME
-#define NAME "missing"
+#ifndef STATE
+#define STATE "alpha"
 #endif
 #ifndef VERSION
-#define VERSION "missing"
+#define VERSION "4.9"
 #endif
 #ifndef DATE
-#define DATE "missing"
+#define DATE __DATE__
 #endif
 
-#ifndef PAXSY_LIBRARY_DIR
-#define PAXSY_LIBRARY_DIR "/usr/local/lib/paxsy"
-#endif
-#ifndef PAXSY_INCLUDE_DIR
-#define PAXSY_INCLUDE_DIR "/usr/local/include/paxsy"
-#endif
+/*
+ * Print version and build information to standard output.
+ * This definition matches the non-static declaration in commands.h.
+ */
+void print_version(void)
+{
+    printf("Paxsy Toolchain version %s (%s) built %s\n",
+           VERSION, STATE, DATE);
+}
 
-typedef uint32_t FlagSet;
-
-enum {
-    F_MODE_COMPILE       = 1U << 0,
-    F_DEBUG_PREPROCESS   = 1U << 1,
-    F_DEBUG_LEXICAL      = 1U << 2,
-    F_DEBUG_SYNTAX       = 1U << 3,
-    F_DEBUG_SEMANTIC     = 1U << 4,
-    F_DEBUG_IR           = 1U << 5,
-    F_DEBUG_OPTIM        = 1U << 6,
-    F_DEBUG_COMPILE      = 1U << 7,
-    F_DEBUG_BUILD        = 1U << 8,
-    F_DEBUG_LINKER       = 1U << 9,
-    F_DEBUG_ALL          = 1U << 10,
-    F_TIME               = 1U << 11,
-    F_WALL               = 1U << 13,
-    F_WEXTRA             = 1U << 14,
-    F_WERROR             = 1U << 15,
-    F_WIGNOR             = 1U << 16,
-    F_DEBUG_SYMBOLS      = 1U << 17,
-    F_OUTPUT_ASSEMBLY    = 1U << 18,
-    F_MODE_STATIC_LIB    = 1U << 19
-};
-
-#define FILENAMES_BLOCK 8
-#define LIBRARIES_BLOCK 4
-
-typedef void (*OutputWriterEx)(FILE*, void*);
-
-typedef struct {
-    FlagSet flags;
-    char*   output_file;
-    char**  filenames;
-    size_t  file_count;
-    size_t  file_capacity;
-    char**  libraries;
-    size_t  lib_count;
-    size_t  lib_capacity;
-    int     exit_code;
-    const char* target_arch;
-    const char* target_core;
-    const char* target_bits;
-} Arguments;
-
-static int dynamic_string_push(char*** array, size_t* count, size_t* capacity,
-                               const char* str, const char* err_msg);
-static int expand_at_files(int* argc, char*** argv);
-static char* read_file_contents(const char* filename, size_t* out_size);
-static void write_debug_output(FlagSet flags, FlagSet required_flag,
-                               OutputWriterEx writer, void* userdata);
-static const char** split_into_lines(const char* text, size_t* out_count);
-static void free_lines(const char** lines, size_t count);
-static char* derive_assembly_filename(const char* source);
-static char* derive_optimized_ast_filename(const char* source);
-static void lexer_output_writer(FILE* f, void* data);
-static void parser_output_writer(FILE* f, void* data);
-static void semantic_output_writer(FILE* f, void* data);
-static void optimizer_output_writer(FILE* f, void* data);
-static void ir_output_writer(FILE* f, void* data);
-static const char* detect_target_os(void);
-static const char* detect_target_arch(void);
-static const char* detect_target_bits(void);
-static int process_one_file(const char* filename, const char* output_file,
-                            FlagSet flags, const Arguments* args,
-                            SemanticContext** semantic_ctx);
-static int arg_matches(const char* arg, const char* prefix, const char** out_rest);
-static void parse_debug_info(const char* value, FlagSet* flags);
-static int validate_target_arch(const char* value);
-static int validate_target_core(const char* value);
-static int validate_target_bits(const char* value);
-static void print_usage(void);
-static void print_version(void);
-static int parse_arguments(int argc, char* argv[], Arguments* args);
-static char* read_entire_file(const char* path, size_t* size);
-static char** tokenize_args(const char* input, int* argc);
-
-static int dynamic_string_push(char*** array, size_t* count, size_t* capacity,
-                               const char* str, const char* err_msg) {
-    if (*count >= *capacity) {
-        size_t new_cap = (*capacity == 0) ? FILENAMES_BLOCK : (*capacity * 2);
-        char** new_arr = (char**)memory_reallocate_zero(
-            *array, *capacity * sizeof(char*), new_cap * sizeof(char*));
-        if (!new_arr) {
-            errhandler__report_error(ERROR_CODE_MEMORY_ALLOCATION, 0, 0, "memory",
-                                     "Failed to grow %s array", err_msg);
-            return 0;
-        }
-        *array = new_arr;
-        *capacity = new_cap;
+/*
+ * Main entry point.
+ * Parses the command and arguments, then dispatches to the appropriate
+ * handler. Returns 0 on success, non-zero on error.
+ */
+int main(int argc, char *argv[])
+{
+    /* At least the program name and a command are required. */
+    if (argc < 2) {
+        print_usage();
+        return 1;
     }
-    char* copy = u__strdup_safe(str);
-    if (!copy) {
-        errhandler__report_error(ERROR_CODE_MEMORY_ALLOCATION, 0, 0, "memory",
-                                 "Failed to duplicate %s", err_msg);
+
+    const char *cmd = argv[1];
+
+    /* Handle global flags that do not require a command. */
+    if (strcmp(cmd, "--help") == 0 || strcmp(cmd, "-h") == 0) {
+        print_usage();
         return 0;
     }
-    (*array)[(*count)++] = copy;
-    return 1;
-}
-
-static int arg_matches(const char* arg, const char* prefix, const char** out_rest) {
-    if (out_rest) *out_rest = NULL;
-    size_t plen = strlen(prefix);
-    if (strncmp(arg, prefix, plen) != 0) return 0;
-    if (arg[plen] == '\0') return 1;
-    if (arg[plen] == '=') {
-        if (out_rest) *out_rest = arg + plen + 1;
-        return 1;
-    }
-    return 0;
-}
-
-static void parse_debug_info(const char* value, FlagSet* flags) {
-    if (!value) return;
-    if (u__streq(value, "all")) {
-        *flags |= F_DEBUG_PREPROCESS | F_DEBUG_LEXICAL | F_DEBUG_SYNTAX |
-                  F_DEBUG_SEMANTIC | F_DEBUG_IR | F_DEBUG_OPTIM |
-                  F_DEBUG_COMPILE | F_DEBUG_BUILD | F_DEBUG_LINKER;
-        return;
-    }
-    if (u__streq(value, "preprocess")) {
-        *flags |= F_DEBUG_PREPROCESS;
-    } else if (u__streq(value, "lexical")) {
-        *flags |= F_DEBUG_LEXICAL;
-    } else if (u__streq(value, "syntax")) {
-        *flags |= F_DEBUG_SYNTAX;
-    } else if (u__streq(value, "semantic")) {
-        *flags |= F_DEBUG_SEMANTIC;
-    } else if (u__streq(value, "ir")) {
-        *flags |= F_DEBUG_IR;
-    } else if (u__streq(value, "optim")) {
-        *flags |= F_DEBUG_OPTIM;
-    } else if (u__streq(value, "compile")) {
-        *flags |= F_DEBUG_COMPILE;
-    } else if (u__streq(value, "build")) {
-        *flags |= F_DEBUG_BUILD;
-    } else if (u__streq(value, "linker")) {
-        *flags |= F_DEBUG_LINKER;
-    }
-}
-
-static int validate_target_arch(const char* value) {
-    if (!value) return 0;
-    return (u__streq(value, "x86") || u__streq(value, "x86_64") ||
-            u__streq(value, "amd64") || u__streq(value, "arm") ||
-            u__streq(value, "nativ"));
-}
-
-static int validate_target_core(const char* value) {
-    if (!value) return 0;
-    return (u__streq(value, "UNIX") || u__streq(value, "BSD") ||
-            u__streq(value, "GNUHurd") || u__streq(value, "Linux") ||
-            u__streq(value, "Darwin") || u__streq(value, "NT") ||
-            u__streq(value, "nativ"));
-}
-
-static int validate_target_bits(const char* value) {
-    if (!value) return 0;
-    return (u__streq(value, "64") || u__streq(value, "32") ||
-            u__streq(value, "16") || u__streq(value, "8") ||
-            u__streq(value, "nativ"));
-}
-
-static void print_usage(void) {
-    printf("usage: paxsy \033[1m[operations] <output> <source>\033[0m ...\n"
-           "operations:\n"
-           "  \033[1m-help\033[0m                   Display this information.\n"
-           "  \033[1m-version\033[0m                Display compiler version.\n"
-           "  \033[1m--c=<format>\033[0m            Compile files into an executable file with the\n"
-           "                          specified format.\n"
-           "                           --c={{elf|exe|app}|nativ}\n"
-           "  \033[1m-o\033[0m                      Compile a binary file (overrides output file).\n"
-           "  \033[1m-S\033[0m                      Compile to assembly only (generates .s files).\n"
-           "  \033[1m-shared\033[0m                 Compile shared object file.\n"
-           "  \033[1m-state\033[0m                  Create a static library archive (.a file).\n"
-           "  \033[1m--l=<lib>\033[0m               Link with the specified static library.\n"
-           "  \033[1m-time\033[0m                   Compile time output.\n"
-           "  \033[1m-g\033[0m                      Generate debug information (analogous to GCC).\n"
-           "  \033[1m-Wall\033[0m                   Includes all basic warnings.\n"
-           "  \033[1m-Wextra\033[0m                 Includes extended warnings.\n"
-           "  \033[1m-Werror\033[0m                 Turns all warnings into errors.\n"
-           "  \033[1m-Wignor\033[0m                 Turns off warnings.\n"
-           "  \033[1m--tarch=<arch>\033[0m          Specify the target processor architecture.\n"
-           "                           --tarch={{x86|x86_64|amd64|arm}|nativ}\n"
-           "  \033[1m--tcore=<core>\033[0m          Specify the target core of the system.\n"
-           "                           --tcore={{UNIX|BSD|GNUHurd|Linux|Darwin|NT}|\n"
-           "                             |nativ}\n"
-           "  \033[1m--tbits=<bits>\033[0m          Specify the target bit size of the processor.\n"
-           "                           --tbits={{64/32/16/8}|nativ}\n"
-           "  \033[1m--debug-info=<mod>\033[0m      Debug output (off by default).\n"
-           "                           --debug-info={{preprocess|lexical|syntax|\n"
-           "                             |semantic|ir|optim|compile|build|linker}|all}\n"
-           "\n"
-           "Arguments may also be read from a file using @<filename>.\n"
-           "\n"
-           "For bug reporting instructions, please see:\n"
-           "<https://github.com/aiv-tmc/paxsy/wiki/Flags>\n");
-}
-
-static void print_version(void) {
-    printf("paxsy %s %s\n"
-           "\033[1m%s\033[0m - \033[1m%s\033[0m\n"
-           "\n"
-           "Developed by AIV\n"
-           "This free software is distributed under the MIT General Public License\n",
-           GENERATION, NAME, VERSION, DATE);
-}
-
-static char* read_entire_file(const char* path, size_t* size) {
-    FILE* f = fopen(path, "r");
-    if (!f) {
-        errhandler__report_error(ERROR_CODE_IO_READ, 0, 0, "file",
-                                 "Cannot open flags file: %s", path);
-        return NULL;
-    }
-    fseek(f, 0, SEEK_END);
-    long len = ftell(f);
-    if (len < 0) { fclose(f); return NULL; }
-    rewind(f);
-    char* buf = (char*)memory_allocate_zero((size_t)len + 1);
-    if (!buf) { fclose(f); return NULL; }
-    size_t read_bytes = fread(buf, 1, (size_t)len, f);
-    fclose(f);
-    if (read_bytes != (size_t)len) {
-        memory_free_safe((void**)&buf);
-        return NULL;
-    }
-    buf[len] = '\0';
-    if (size) *size = (size_t)len;
-    return buf;
-}
-
-static char** tokenize_args(const char* input, int* argc) {
-    if (!input) return NULL;
-    int count = 0;
-    const char* p = input;
-    int in_quote = 0;
-    char quote_char = 0;
-    while (*p) {
-        if (!in_quote && u__char_is_whitespace(*p)) { ++p; continue; }
-        if (!in_quote && (*p == '"' || *p == '\'')) {
-            in_quote = 1;
-            quote_char = *p;
-            ++p;
-            continue;
-        }
-        if (in_quote && *p == quote_char) {
-            in_quote = 0;
-            quote_char = 0;
-            ++p;
-            continue;
-        }
-        ++p;
-        if (!in_quote && (u__char_is_whitespace(*p) || *p == '\0' || *p == '"' || *p == '\'')) {
-            count++;
-            while (u__char_is_whitespace(*p)) ++p;
-        }
-    }
-    if (count == 0) {
-        char** result = (char**)memory_allocate_zero(sizeof(char*));
-        if (result) *result = NULL;
-        *argc = 0;
-        return result;
-    }
-    char** argv = (char**)memory_allocate_zero((count + 1) * sizeof(char*));
-    if (!argv) return NULL;
-    p = input;
-    int idx = 0;
-    while (*p) {
-        while (!in_quote && u__char_is_whitespace(*p)) ++p;
-        if (!*p) break;
-        const char* start = p;
-        while (*p) {
-            if (!in_quote && (*p == '"' || *p == '\'')) {
-                in_quote = 1;
-                quote_char = *p;
-                ++p;
-                continue;
-            }
-            if (in_quote && *p == quote_char) {
-                in_quote = 0;
-                quote_char = 0;
-                ++p;
-                break;
-            }
-            if (!in_quote && u__char_is_whitespace(*p)) break;
-            ++p;
-        }
-        size_t len = p - start;
-        char* tok = (char*)memory_allocate_zero(len + 1);
-        if (!tok) {
-            for (int j = 0; j < idx; ++j) memory_free_safe((void**)&argv[j]);
-            memory_free_safe((void**)&argv);
-            return NULL;
-        }
-        memcpy(tok, start, len);
-        tok[len] = '\0';
-        argv[idx++] = tok;
-    }
-    argv[count] = NULL;
-    *argc = count;
-    return argv;
-}
-
-static int expand_at_files(int* argc, char*** argv) {
-    int new_argc = *argc;
-    char** new_argv = NULL;
-    int out_idx = 0;
-    for (int i = 0; i < *argc; ++i) {
-        if ((*argv)[i][0] == '@') {
-            const char* fname = (*argv)[i] + 1;
-            size_t fsize;
-            char* content = read_entire_file(fname, &fsize);
-            if (!content) {
-                errhandler__report_error(ERROR_CODE_IO_READ, 0, 0, "file",
-                                         "Failed to read flags file: %s", fname);
-                return 0;
-            }
-            int sub_argc = 0;
-            char** sub_argv = tokenize_args(content, &sub_argc);
-            memory_free_safe((void**)&content);
-            if (!sub_argv) return 0;
-            new_argc += sub_argc - 1;
-            for (int j = 0; j < sub_argc; ++j) memory_free_safe((void**)&sub_argv[j]);
-            memory_free_safe((void**)&sub_argv);
-        }
-    }
-    new_argv = (char**)memory_allocate_zero((new_argc + 1) * sizeof(char*));
-    if (!new_argv) return 0;
-    for (int i = 0; i < *argc; ++i) {
-        if ((*argv)[i][0] == '@') {
-            const char* fname = (*argv)[i] + 1;
-            size_t fsize;
-            char* content = read_entire_file(fname, &fsize);
-            if (!content) {
-                for (int j = 0; j < out_idx; ++j) memory_free_safe((void**)&new_argv[j]);
-                memory_free_safe((void**)&new_argv);
-                return 0;
-            }
-            int sub_argc = 0;
-            char** sub_argv = tokenize_args(content, &sub_argc);
-            memory_free_safe((void**)&content);
-            if (!sub_argv) {
-                for (int j = 0; j < out_idx; ++j) memory_free_safe((void**)&new_argv[j]);
-                memory_free_safe((void**)&new_argv);
-                return 0;
-            }
-            for (int j = 0; j < sub_argc; ++j) new_argv[out_idx++] = sub_argv[j];
-            memory_free_safe((void**)&sub_argv);
-        } else {
-            new_argv[out_idx++] = u__strdup_safe((*argv)[i]);
-        }
-    }
-    new_argv[new_argc] = NULL;
-    *argc = new_argc;
-    *argv = new_argv;
-    return 1;
-}
-
-static int parse_arguments(int argc, char* argv[], Arguments* args) {
-    memset(args, 0, sizeof(*args));
-    args->file_capacity = (argc / 2) + FILENAMES_BLOCK;
-    args->filenames = (char**)memory_allocate_zero(args->file_capacity * sizeof(char*));
-    if (!args->filenames) {
-        errhandler__report_error(ERROR_CODE_MEMORY_ALLOCATION, 0, 0, "memory",
-                                 "Failed to allocate filename array");
+    if (strcmp(cmd, "--version") == 0 || strcmp(cmd, "-v") == 0) {
+        print_version();
         return 0;
     }
-    args->lib_capacity = LIBRARIES_BLOCK;
-    args->libraries = (char**)memory_allocate_zero(args->lib_capacity * sizeof(char*));
-    if (!args->libraries) {
-        errhandler__report_error(ERROR_CODE_MEMORY_ALLOCATION, 0, 0, "memory",
-                                 "Failed to allocate libraries array");
+    if (strcmp(cmd, "--license") == 0 || strcmp(cmd, "-l") == 0) {
+        handle_license();
         return 0;
     }
-    args->target_arch = "nativ";
-    args->target_core = "nativ";
-    args->target_bits = "nativ";
-    const char* rest = NULL;
-    int output_set = 0;
-    for (int i = 1; i < argc; ++i) {
-        char* arg = argv[i];
-        if (arg[0] != '-') {
-            if (!output_set) {
-                args->output_file = u__strdup_safe(arg);
-                output_set = 1;
-                args->flags |= F_MODE_COMPILE;
-            } else {
-                if (!dynamic_string_push(&args->filenames, &args->file_count,
-                                         &args->file_capacity, arg, "filename"))
-                    return 0;
-            }
-            continue;
+
+    /*
+     * Dispatch to the appropriate command handler.
+     * Each command is responsible for validating its own arguments and
+     * reporting errors through the errhandler module.
+     */
+
+    if (strcmp(cmd, "init") == 0) {
+        /* init requires exactly one argument: the project name. */
+        if (argc != 3) {
+            errhandler__report_error(0, 0,
+                                     "main",
+                                     "Usage: paxsy init <project>");
+            errhandler__print_errors();
+            errhandler__print_warnings();
+            return 1;
         }
-        if (u__streq(arg, "-help")) { print_usage(); args->exit_code = 0; return -1; }
-        if (u__streq(arg, "-version")) { print_version(); args->exit_code = 0; return -1; }
-        if (u__streq(arg, "-S")) { args->flags |= F_OUTPUT_ASSEMBLY; continue; }
-        if (u__streq(arg, "-state")) { args->flags |= F_MODE_STATIC_LIB; continue; }
-        if (arg_matches(arg, "--l", &rest)) {
-            if (!rest || !*rest) {
-                errhandler__report_error(ERROR_CODE_INPUT_INVALID_FLAG, 0, 0, "input",
-                                         "Missing library name after --l=");
-                continue;
-            }
-            if (!dynamic_string_push(&args->libraries, &args->lib_count,
-                                     &args->lib_capacity, rest, "library"))
-                return 0;
-            continue;
-        }
-        if (u__streq(arg, "-o")) {
-            if (i + 1 < argc) {
-                if (args->output_file) memory_free_safe((void**)&args->output_file);
-                args->output_file = u__strdup_safe(argv[++i]);
-                output_set = 1;
-                args->flags |= F_MODE_COMPILE;
-            }
-            continue;
-        }
-        if (u__streq(arg, "-shared")) { args->flags |= F_MODE_COMPILE; continue; }
-        if (arg_matches(arg, "--c", &rest)) { args->flags |= F_MODE_COMPILE; continue; }
-        if (u__streq(arg, "-time")) { args->flags |= F_TIME; continue; }
-        if (u__streq(arg, "-g")) { args->flags |= F_DEBUG_SYMBOLS; continue; }
-        if (u__streq(arg, "-Wall")) { args->flags |= F_WALL; continue; }
-        if (u__streq(arg, "-Wextra")) { args->flags |= F_WEXTRA; continue; }
-        if (u__streq(arg, "-Werror")) { args->flags |= F_WERROR; continue; }
-        if (u__streq(arg, "-Wignor")) { args->flags |= F_WIGNOR; continue; }
-        if (arg_matches(arg, "--tarch", &rest)) {
-            if (!validate_target_arch(rest)) {
-                errhandler__report_error(ERROR_CODE_INPUT_INVALID_FLAG, 0, 0, "input",
-                                         "Invalid value for --tarch: %s", rest ? rest : "(null)");
-                continue;
-            }
-            args->target_arch = rest;
-            continue;
-        }
-        if (arg_matches(arg, "--tcore", &rest)) {
-            if (!validate_target_core(rest)) {
-                errhandler__report_error(ERROR_CODE_INPUT_INVALID_FLAG, 0, 0, "input",
-                                         "Invalid value for --tcore: %s", rest ? rest : "(null)");
-                continue;
-            }
-            args->target_core = rest;
-            continue;
-        }
-        if (arg_matches(arg, "--tbits", &rest)) {
-            if (!validate_target_bits(rest)) {
-                errhandler__report_error(ERROR_CODE_INPUT_INVALID_FLAG, 0, 0, "input",
-                                         "Invalid value for --tbits: %s", rest ? rest : "(null)");
-                continue;
-            }
-            args->target_bits = rest;
-            continue;
-        }
-        if (arg_matches(arg, "--debug-info", &rest)) {
-            parse_debug_info(rest, &args->flags);
-            continue;
-        }
-        errhandler__report_error(ERROR_CODE_INPUT_INVALID_FLAG, 0, 0, "input",
-                                 "unknown flag: %s", arg);
-    }
-    return 1;
-}
-
-static char* read_file_contents(const char* filename, size_t* out_size) {
-    FILE* f = fopen(filename, "r");
-    if (!f) {
-        errhandler__report_error(ERROR_CODE_IO_READ, 0, 0, "file",
-                                 "Cannot open file: %s", filename);
-        return NULL;
-    }
-    if (fseek(f, 0, SEEK_END) != 0) {
-        errhandler__report_error(ERROR_CODE_IO_READ, 0, 0, "file",
-                                 "Cannot seek in file: %s", filename);
-        fclose(f);
-        return NULL;
-    }
-    long size = ftell(f);
-    if (size < 0) {
-        errhandler__report_error(ERROR_CODE_IO_READ, 0, 0, "file",
-                                 "Cannot determine file size: %s", filename);
-        fclose(f);
-        return NULL;
-    }
-    rewind(f);
-    *out_size = (size_t)size;
-    if (*out_size == 0) {
-        fclose(f);
-        char* empty = (char*)memory_allocate_zero(1);
-        if (empty) empty[0] = '\0';
-        return empty;
-    }
-    char* buf = (char*)memory_allocate_zero(*out_size + 1);
-    if (!buf) { fclose(f); return NULL; }
-    size_t read_bytes = fread(buf, 1, *out_size, f);
-    fclose(f);
-    if (read_bytes != *out_size) {
-        memory_free_safe((void**)&buf);
-        errhandler__report_error(ERROR_CODE_IO_READ, 0, 0, "file",
-                                 "Short read from file: %s", filename);
-        return NULL;
-    }
-    buf[*out_size] = '\0';
-    return buf;
-}
-
-static void write_debug_output(FlagSet flags, FlagSet required_flag,
-                               OutputWriterEx writer, void* userdata) {
-    if (flags & required_flag) writer(stdout, userdata);
-}
-
-static const char** split_into_lines(const char* text, size_t* out_count) {
-    *out_count = 0;
-    if (!text || !*text) return NULL;
-    size_t cap = 32;
-    const char** lines = (const char**)memory_allocate_zero(cap * sizeof(char*));
-    if (!lines) return NULL;
-    size_t idx = 0;
-    const char* start = text;
-    const char* p = text;
-    while (*p) {
-        if (u__char_is_line_break(*p)) {
-            size_t len = p - start;
-            char* copy = (char*)memory_allocate_zero(len + 1);
-            if (!copy) goto fail;
-            memcpy(copy, start, len);
-            copy[len] = '\0';
-            if (idx >= cap) {
-                cap *= 2;
-                const char** newl = (const char**)memory_reallocate_zero(
-                    lines, idx * sizeof(char*), cap * sizeof(char*));
-                if (!newl) { memory_free_safe((void**)&copy); goto fail; }
-                lines = newl;
-            }
-            lines[idx++] = copy;
-            start = p + 1;
-        }
-        ++p;
-    }
-    if (start < p) {
-        size_t len = p - start;
-        char* copy = (char*)memory_allocate_zero(len + 1);
-        if (!copy) goto fail;
-        memcpy(copy, start, len);
-        copy[len] = '\0';
-        if (idx >= cap) {
-            cap += 1;
-            const char** newl = (const char**)memory_reallocate_zero(
-                lines, idx * sizeof(char*), cap * sizeof(char*));
-            if (!newl) { memory_free_safe((void**)&copy); goto fail; }
-            lines = newl;
-        }
-        lines[idx++] = copy;
-    }
-    *out_count = idx;
-    if (idx < cap) {
-        const char** shrunk = (const char**)memory_reallocate_zero(
-            lines, cap * sizeof(char*), idx * sizeof(char*));
-        if (shrunk) lines = shrunk;
-    }
-    return lines;
-fail:
-    for (size_t i = 0; i < idx; ++i) memory_free_safe((void**)&lines[i]);
-    memory_free_safe((void**)&lines);
-    return NULL;
-}
-
-static void free_lines(const char** lines, size_t count) {
-    if (!lines) return;
-    for (size_t i = 0; i < count; ++i) memory_free_safe((void**)&lines[i]);
-    memory_free_safe((void**)&lines);
-}
-
-static char* derive_assembly_filename(const char* source) {
-    if (!source) return NULL;
-    const char* last_slash = strrchr(source, '/');
-    const char* last_backslash = strrchr(source, '\\');
-    const char* file_start = source;
-    if (last_slash) file_start = last_slash + 1;
-    if (last_backslash && last_backslash > last_slash) file_start = last_backslash + 1;
-    const char* last_dot = strrchr(file_start, '.');
-    size_t base_len = last_dot ? (size_t)(last_dot - source) : strlen(source);
-    size_t new_len = base_len + 3;
-    char* asm_name = (char*)memory_allocate_zero(new_len);
-    if (!asm_name) return NULL;
-    memcpy(asm_name, source, base_len);
-    asm_name[base_len] = '.';
-    asm_name[base_len+1] = 's';
-    asm_name[base_len+2] = '\0';
-    return asm_name;
-}
-
-static char* derive_optimized_ast_filename(const char* source) {
-    if (!source) return NULL;
-    const char* last_slash = strrchr(source, '/');
-    const char* last_backslash = strrchr(source, '\\');
-    const char* file_start = source;
-    if (last_slash) file_start = last_slash + 1;
-    if (last_backslash && last_backslash > last_slash) file_start = last_backslash + 1;
-    const char* last_dot = strrchr(file_start, '.');
-    size_t base_len = last_dot ? (size_t)(last_dot - source) : strlen(source);
-    size_t new_len = base_len + 11;
-    char* opt_name = (char*)memory_allocate_zero(new_len);
-    if (!opt_name) return NULL;
-    memcpy(opt_name, source, base_len);
-    memcpy(opt_name + base_len, ".optim.ast", 10);
-    opt_name[base_len + 10] = '\0';
-    return opt_name;
-}
-
-static void lexer_output_writer(FILE* f, void* data) {
-    Lexer* lexer = (Lexer*)data;
-    print_tokens_in_lines(lexer, f);
-}
-
-static void parser_output_writer(FILE* f, void* data) {
-    AST* ast = (AST*)data;
-    print_ast_detailed(ast, f);
-}
-
-static void semantic_output_writer(FILE* f, void* data) {
-    SemanticContext* ctx = (SemanticContext*)data;
-    print_semantic_analysis(ctx, f);
-}
-
-static void optimizer_output_writer(FILE* f, void* data) {
-    AST* ast = (AST*)data;
-    print_optimized_ast(ast, f);
-}
-
-static void ir_output_writer(FILE* f, void* data) {
-    IrModule* mod = (IrModule*)data;
-    output__print_ir_module(mod, f);
-}
-
-static const char* detect_target_os(void) {
-#if defined(_WIN32) || defined(_WIN64)
-    return "NT";
-#elif defined(__linux__)
-    return "linux";
-#elif defined(__APPLE__) && defined(__MACH__)
-    return "darwin";
-#elif defined(__FreeBSD__)
-    return "freebsd";
-#elif defined(__OpenBSD__)
-    return "openbsd";
-#elif defined(__NetBSD__)
-    return "netbsd";
-#elif defined(__sun)
-    return "solaris";
-#elif defined(__MSDOS__) || defined(__DOS__)
-    return "msdos";
-#else
-    return "unknown";
-#endif
-}
-
-static const char* detect_target_arch(void) {
-#if defined(__x86_64__) || defined(_M_X64) || defined(__amd64__)
-    return "x86_64";
-#elif defined(__i386__) || defined(_M_IX86) || defined(__i486__) || defined(__i586__) || defined(__i686__)
-    return "i386";
-#elif defined(__arm__)
-    #if defined(__ARM_ARCH_7__) || defined(__ARM_ARCH_7A__)
-        return "armv7";
-    #elif defined(__ARM_ARCH_6__)
-        return "armv6";
-    #elif defined(__ARM_ARCH_5__)
-        return "armv5";
-    #elif defined(__ARM_ARCH_4T__)
-        return "armv4t";
-    #else
-        return "arm";
-    #endif
-#elif defined(__aarch64__)
-    return "aarch64";
-#else
-    return "unknown";
-#endif
-}
-
-static const char* detect_target_bits(void) {
-    if (sizeof(void*) == 8) return "64";
-    if (sizeof(void*) == 4) return "32";
-    if (sizeof(void*) == 2) return "16";
-    if (sizeof(void*) == 1) return "8";
-    return "unknown";
-}
-
-static int process_one_file(const char* filename, const char* output_file,
-                            FlagSet flags, const Arguments* args,
-                            SemanticContext** semantic_ctx) {
-    int err = 0;
-    size_t file_size = 0;
-    char* raw = NULL;
-    char* processed = NULL;
-    Lexer* lexer = NULL;
-    AST* ast = NULL;
-    IrModule* ir_mod = NULL;
-    const char** lines = NULL;
-    size_t line_count = 0;
-    errhandler__set_current_filename(filename);
-    raw = read_file_contents(filename, &file_size);
-    if (!raw) { err = 1; goto cleanup; }
-    processed = preprocess(raw, filename, NULL);
-    if (!processed) {
-        errhandler__report_error(ERROR_CODE_COM_FAILCREATE, 0, 0, "preproc",
-                                 "Preprocessing failed for file: %s", filename);
-        err = 1; goto cleanup;
-    }
-    lines = split_into_lines(processed, &line_count);
-    if (lines) errhandler__set_source_code(lines, line_count);
-    lexer = lexer__init_lexer(processed);
-    if (!lexer) { err = 1; goto cleanup; }
-    lexer__tokenize(lexer);
-    write_debug_output(flags, F_DEBUG_LEXICAL, lexer_output_writer, lexer);
-    if (!errhandler__has_errors()) {
-        ast = parse(lexer->tokens, lexer->token_count);
-        write_debug_output(flags, F_DEBUG_SYNTAX, parser_output_writer, ast);
-    }
-    if (*semantic_ctx && ast && !errhandler__has_errors()) {
-        if (flags & F_WEXTRA) semantic__set_extra_warnings(*semantic_ctx, true);
-        semantic__analyze(*semantic_ctx, ast);
-        write_debug_output(flags, F_DEBUG_SEMANTIC, semantic_output_writer, *semantic_ctx);
-        if (!errhandler__has_errors()) {
-            ir_mod = ir__generate_module(*semantic_ctx, ast);
-            if (ir_mod) {
-                write_debug_output(flags, F_DEBUG_IR, ir_output_writer, ir_mod);
-            } else {
-                errhandler__report_error(ERROR_CODE_MEMORY_ALLOCATION, 0, 0, "ir",
-                                         "IR module generation failed");
-                err = 1;
-            }
-        }
-        if (!errhandler__has_errors()) {
-            if (flags & F_DEBUG_OPTIM) {
-                optimizer__enable_debug(true);
-                optimizer__set_debug_file(stdout);
-            } else {
-                optimizer__enable_debug(false);
-            }
-            if (flags & F_DEBUG_OPTIM) {
-                char* opt_filename = derive_optimized_ast_filename(filename);
-                if (opt_filename) {
-                    FILE* opt_fp = fopen(opt_filename, "w");
-                    if (opt_fp) {
-                        print_optimized_ast(ast, opt_fp);
-                        fclose(opt_fp);
-                    } else {
-                        errhandler__report_error(ERROR_CODE_IO_WRITE, 0, 0, "file",
-                                                 "Cannot open optimized AST debug file: %s",
-                                                 opt_filename);
-                    }
-                    memory_free_safe((void**)&opt_filename);
-                }
-            }
-            if (!optimizer__optimize(ast, (*semantic_ctx)->global_scope)) err = 1;
-            write_debug_output(flags, F_DEBUG_OPTIM, optimizer_output_writer, ast);
-        }
-    }
-    if ((flags & F_OUTPUT_ASSEMBLY) && ir_mod && !errhandler__has_errors() && output_file) {
-        FILE *asm_out = fopen(output_file, "w");
-        if (asm_out) {
-            fprintf(asm_out, "; ARM AArch64 assembly placeholder for %s\n", filename);
-            fclose(asm_out);
-        } else {
-            errhandler__report_error(ERROR_CODE_IO_WRITE, 0, 0, "file",
-                                     "Cannot open assembly output: %s", output_file);
-        }
-    }
-cleanup:
-    errhandler__clear_source_code();
-    if (lines) free_lines(lines, line_count);
-    if (ir_mod) ir__module_destroy(ir_mod);
-    if (ast) parser__free_ast(ast);
-    if (lexer) lexer__free_lexer(lexer);
-    memory_free_safe((void**)&processed);
-    memory_free_safe((void**)&raw);
-    errhandler__set_current_filename(NULL);
-    return err || errhandler__has_errors();
-}
-
-int main(int argc, char* argv[]) {
-    int expanded_argc = argc;
-    char** expanded_argv = NULL;
-    expanded_argv = (char**)memory_allocate_zero(argc * sizeof(char*));
-    if (!expanded_argv) {
-        errhandler__report_error(ERROR_CODE_MEMORY_ALLOCATION, 0, 0, "memory",
-                                 "Failed to allocate argv copy");
-        return 1;
-    }
-    for (int i = 0; i < argc; ++i) expanded_argv[i] = u__strdup_safe(argv[i]);
-    if (!expand_at_files(&expanded_argc, &expanded_argv)) {
-        for (int i = 0; i < expanded_argc; ++i) memory_free_safe((void**)&expanded_argv[i]);
-        memory_free_safe((void**)&expanded_argv);
-        return 1;
-    }
-    Arguments args = {0};
-    int parse_result = parse_arguments(expanded_argc, expanded_argv, &args);
-    for (int i = 0; i < expanded_argc; ++i) memory_free_safe((void**)&expanded_argv[i]);
-    memory_free_safe((void**)&expanded_argv);
-    if (parse_result == -1) {
-        if (args.output_file) memory_free_safe((void**)&args.output_file);
-        for (size_t i = 0; i < args.file_count; ++i) memory_free_safe((void**)&args.filenames[i]);
-        for (size_t i = 0; i < args.lib_count; ++i) memory_free_safe((void**)&args.libraries[i]);
-        memory_free_safe((void**)&args.filenames);
-        memory_free_safe((void**)&args.libraries);
-        return args.exit_code;
-    }
-    if (parse_result == 0) {
-        if (args.output_file) memory_free_safe((void**)&args.output_file);
-        for (size_t i = 0; i < args.file_count; ++i) memory_free_safe((void**)&args.filenames[i]);
-        for (size_t i = 0; i < args.lib_count; ++i) memory_free_safe((void**)&args.libraries[i]);
-        memory_free_safe((void**)&args.filenames);
-        memory_free_safe((void**)&args.libraries);
-        return 1;
-    }
-    errhandler__set_warnings_as_errors((args.flags & F_WERROR) != 0);
-    errhandler__set_suppress_warnings((args.flags & F_WIGNOR) != 0);
-    if (u__streq(args.target_arch, "nativ")) args.target_arch = detect_target_arch();
-    if (u__streq(args.target_core, "nativ")) args.target_core = detect_target_os();
-    if (u__streq(args.target_bits, "nativ")) args.target_bits = detect_target_bits();
-    builtin_target_os = args.target_core;
-    builtin_target_arch = args.target_arch;
-    builtin_target_bits = args.target_bits;
-    if ((args.flags & F_OUTPUT_ASSEMBLY) && args.output_file && args.file_count > 1) {
-        errhandler__report_error(ERROR_CODE_INPUT_INVALID_FLAG, 0, 0, "input",
-                                 "cannot specify -o with -S and multiple source files");
-    }
-    if ((args.flags & (F_MODE_COMPILE | F_MODE_STATIC_LIB)) && !args.output_file) {
-        if (!(args.flags & F_OUTPUT_ASSEMBLY)) {
-            errhandler__report_error(ERROR_CODE_INPUT_NO_SOURCE, 0, 0, "input",
-                                     "compilation or static library requested but no output file specified");
-        }
-    }
-    if (args.file_count == 0 && args.flags) {
-        errhandler__report_error(ERROR_CODE_INPUT_NO_SOURCE, 0, 0, "input",
-                                 "no input source files specified");
-    }
-    if (errhandler__has_errors()) {
+        int ret = cmd_init(argv[2]);
         errhandler__print_errors();
         errhandler__print_warnings();
-        goto cleanup_args;
+        return ret;
     }
-    SemanticContext* semantic_ctx = NULL;
-    if ((args.flags & (F_MODE_COMPILE | F_OUTPUT_ASSEMBLY | F_MODE_STATIC_LIB)) ||
-        (args.flags & F_DEBUG_SEMANTIC)) {
-        semantic_ctx = semantic__create_context();
-        if (!semantic_ctx) {
-            errhandler__report_error(ERROR_CODE_COM_FAILCREATE, 0, 0, "syntax",
-                                     "Failed to create semantic analysis context");
-        } else {
-            semantic_ctx->exit_on_error = ((args.flags & F_MODE_COMPILE) ||
-                                           (args.flags & F_MODE_STATIC_LIB) ||
-                                           (args.flags & F_OUTPUT_ASSEMBLY)) != 0;
-            if (args.flags & F_WEXTRA) semantic__set_extra_warnings(semantic_ctx, true);
+
+    if (strcmp(cmd, "build") == 0) {
+        const char *project_path = NULL;
+        int first_flag_index = 2;
+        if (argc > 2 && argv[2][0] != '-') {
+            project_path = argv[2];
+            first_flag_index = 3;
         }
+        int ret = cmd_build(project_path,
+                            argc - first_flag_index,
+                            argv + first_flag_index);
+        errhandler__print_errors();
+        errhandler__print_warnings();
+        return ret;
     }
-    int exit_code = 0;
-    for (size_t i = 0; i < args.file_count; ++i) {
-        const char* out_name = NULL;
-        if (args.flags & F_OUTPUT_ASSEMBLY) {
-            out_name = derive_assembly_filename(args.filenames[i]);
-            if (!out_name) {
-                errhandler__report_error(ERROR_CODE_MEMORY_ALLOCATION, 0, 0, "memory",
-                                         "could not derive assembly filename for %s", args.filenames[i]);
-                exit_code = 1;
-                continue;
-            }
-        } else {
-            out_name = args.output_file;
+
+    if (strcmp(cmd, "check") == 0) {
+        const char *project_path = NULL;
+        int first_flag_index = 2;
+        if (argc > 2 && argv[2][0] != '-') {
+            project_path = argv[2];
+            first_flag_index = 3;
         }
-        if (process_one_file(args.filenames[i], out_name, args.flags, &args, &semantic_ctx))
-            exit_code = 1;
-        if ((args.flags & F_OUTPUT_ASSEMBLY) && out_name) memory_free_safe((void**)&out_name);
-        if (semantic_ctx && i + 1 < args.file_count) {
-            semantic__destroy_context(semantic_ctx);
-            semantic_ctx = semantic__create_context();
-            if (semantic_ctx) {
-                semantic_ctx->exit_on_error = ((args.flags & F_MODE_COMPILE) ||
-                                               (args.flags & F_MODE_STATIC_LIB) ||
-                                               (args.flags & F_OUTPUT_ASSEMBLY)) != 0;
-                if (args.flags & F_WEXTRA) semantic__set_extra_warnings(semantic_ctx, true);
-            } else {
-                errhandler__report_error(ERROR_CODE_COM_FAILCREATE, 0, 0, "syntax",
-                                         "Failed to recreate semantic context");
-                exit_code = 1;
-            }
-        }
+        int ret = cmd_check(project_path,
+                            argc - first_flag_index,
+                            argv + first_flag_index);
+        errhandler__print_errors();
+        errhandler__print_warnings();
+        return ret;
     }
-    if ((args.flags & F_MODE_STATIC_LIB) && !exit_code) {
-        /* output_create_static_library(args.output_file, ...); */
+
+    if (strcmp(cmd, "test") == 0) {
+        const char *project_path = (argc > 2) ? argv[2] : NULL;
+        int ret = cmd_test(project_path);
+        errhandler__print_errors();
+        errhandler__print_warnings();
+        return ret;
     }
+
+    if (strcmp(cmd, "run") == 0) {
+        const char *project_path = (argc > 2) ? argv[2] : NULL;
+        int ret = cmd_run(project_path);
+        errhandler__print_errors();
+        errhandler__print_warnings();
+        return ret;
+    }
+
+    if (strcmp(cmd, "clean") == 0) {
+        const char *project_path = (argc > 2) ? argv[2] : NULL;
+        int ret = cmd_clean(project_path);
+        errhandler__print_errors();
+        errhandler__print_warnings();
+        return ret;
+    }
+
+    if (strcmp(cmd, "state") == 0) {
+        const char *project_path = (argc > 2) ? argv[2] : NULL;
+        int ret = cmd_state(project_path);
+        errhandler__print_errors();
+        errhandler__print_warnings();
+        return ret;
+    }
+
+    if (strcmp(cmd, "shared") == 0) {
+        const char *project_path = (argc > 2) ? argv[2] : NULL;
+        int ret = cmd_shared(project_path);
+        errhandler__print_errors();
+        errhandler__print_warnings();
+        return ret;
+    }
+
+    /* Unknown command. */
+    errhandler__report_error(0, 0,
+                             "main", "Unknown command: %s", cmd);
     errhandler__print_errors();
     errhandler__print_warnings();
-    if (semantic_ctx) semantic__destroy_context(semantic_ctx);
-cleanup_args:
-    if (args.output_file) memory_free_safe((void**)&args.output_file);
-    for (size_t i = 0; i < args.file_count; ++i) memory_free_safe((void**)&args.filenames[i]);
-    for (size_t i = 0; i < args.lib_count; ++i) memory_free_safe((void**)&args.libraries[i]);
-    memory_free_safe((void**)&args.filenames);
-    memory_free_safe((void**)&args.libraries);
-    errhandler__free_error_manager();
-    return exit_code;
+    print_usage();
+    return 1;
 }
